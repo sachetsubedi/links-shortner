@@ -1,0 +1,63 @@
+{
+  "name": "nodejs-ts-starter",
+  "description": "Basic starter kit for a typescript based nodejs project",
+  "main": "index.js",
+  "keywords": [
+    "ts",
+    "nodejs",
+    "starter",
+    "typescript"
+  ],
+  "author": "shreekrishnalamichhane",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.12.2",
+    "pnpm": ">=9.4.0",
+    "yarn": "This project should only be used with pnpm, yarn is not allowed",
+    "npm": "This project should only be used with pnpm, npm is not allowed"
+  },
+  "scripts": {
+    "clean": "rm -rf dist && rm -drf node_modules",
+    "clean:install": "pnpm clean && pnpm install",
+    "check:type": "tsc -p .",
+    "build:only": "tsup",
+    "build": "pnpm run check:type && pnpm lint && pnpm run build:only",
+    "start": "node dist/index.js",
+    "dev": "tsup --watch --onSuccess 'pnpm start'",
+    "lint": "eslint src",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "@prisma/client": "5.22.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "husky": "^9.1.3",
+    "jod": "^0.0.0",
+    "moment": "^2.30.1",
+    "moment-timezone": "^0.5.45",
+    "morgan": "^1.10.0",
+    "prisma": "^5.22.0",
+    "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
+    "tsup": "^8.2.3",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.3.0",
+    "@commitlint/config-conventional": "^19.2.2",
+    "@eslint/js": "^9.8.0",
+    "@types/express": "^4.17.21",
+    "@types/morgan": "^1.9.9",
+    "@types/node": "^20.14.12",
+    "@typescript-eslint/eslint-plugin": "^7.17.0",
+    "eslint": "^9.8.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-import": "^2.29.1",
+    "globals": "^15.8.0",
+    "prettier": "^3.3.3",
+    "typescript": "^5.5.4",
+    "typescript-eslint": "^7.17.0"
+  }
+}
