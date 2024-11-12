@@ -62,10 +62,10 @@ This project requires following techs to be installed on your system.
 
 5. Set the proper environment variables in `.env` file
 
-```env
- BASE_URL = your_base_url_here
- LINKS_EXPIRATION_TIME = 15   // In minutes
-```
+   ```env
+    BASE_URL = your_base_url_here
+    LINKS_EXPIRATION_TIME = 15   // In minutes
+   ```
 
 <br>
 
