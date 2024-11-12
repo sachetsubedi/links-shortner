@@ -6,6 +6,7 @@ import { ResponseHandler } from '@/utils/response';
 import express, { Request, Response } from 'express';
 import morgan from 'morgan';
 import linksRouter from '@/modules/links/routes';
+import { PrismaClient } from '@prisma/client';
 
 const app = express();
 
@@ -36,6 +37,8 @@ app.use('/links', linksRouter);
 
 // Status Routes
 app.use('/status', statusRoutes);
+
+export const Prisma = new PrismaClient();
 
 // Catch all 404 route
 app.get('*', (req: Request, res: Response) => {
