@@ -1,4 +1,4 @@
-import { BASE_URL } from '@/config/constants';
+import { BASE_URL, LINK_EXPURATION_TIME } from '@/config/constants';
 import { Prisma } from '@/index';
 
 export const LinksService = {
@@ -26,5 +26,15 @@ export const LinksService = {
     const link = `${BASE_URL}/${path}`;
 
     return link;
+  },
+
+  cleanExpiredLinks: async () => {
+    // Get the valid time
+    const expirationTime = new Date(Date.now() - LINK_EXPURATION_TIME * 60 * 1000);
+
+    // Delete all the expired links
+    const links = await Prisma.links.deleteMany({ where: { createdAt: { lte: expirationTime } } });
+
+    return links;
   },
 };

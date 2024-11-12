@@ -10,6 +10,9 @@ import { ExpressResponse } from '@/@types/type';
 export const LinksController = {
   create: async (req: Request, res: Response): ExpressResponse => {
     try {
+      // Clean expired links
+      await LinksService.cleanExpiredLinks();
+
       // Validate the data
       const data = validateLinksInput(req.body);
 
@@ -79,6 +82,9 @@ export const LinksController = {
 
   get: async (req: Request, res: Response) => {
     try {
+      // Clean expired links
+      await LinksService.cleanExpiredLinks();
+
       // Get the path from the params
       const path = req.params.path;
 
