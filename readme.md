@@ -1,12 +1,6 @@
-<p align="center">
-    <a href="https://npsync.com">
-        <img src="./assets/logo.png" height=150px" align="center" alt="logo"/>
-    </a>
-</p>
+<h1 align="center" style="border: 0;"> Links Shortner </h1>
 
-<h1 align="center" style="border: 0;"> NodeJS TS Starter </h1>
-
-<p align="center"><b>Starting point for your typesafe nodejs project.</b></p>
+<p align="center"><b>Simple tool to shorten your long boring links.</b></p>
 
 <br><br>
 
@@ -15,10 +9,8 @@
 - [Tech Stack](#tech-stack)
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
-- [Tests](#tests)
+- [Routes](#routes)
 - [Author](#author)
-- [Contributors](#contributors)
-- [Changelog](#changelog)
 
 <br>
 
@@ -37,22 +29,9 @@ This project requires following techs to be installed on your system.
 - Node v20.12.2 or higher
 - pnpm v9.4.0 or higher
 
-<br>
-
-**Must have VS Code Extensions**
-
-- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
-- [Better Comments](https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments)
-- [TODO Highlight](https://marketplace.visualstudio.com/items?itemName=wayou.vscode-todo-highlight)
-- [GitLens — Git supercharged](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
-- [Git Graph](https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph)
-
-<br>
-
 ## Installation
 
 1. First `fork` the project.
-   [Click here to fork this repo](https://github.com/npsync/nodejs-ts-starter/fork)
 
 <br>
 
@@ -82,9 +61,21 @@ This project requires following techs to be installed on your system.
 
 5. Set the proper environment variables in `.env` file
 
+```env
+ BASE_URL = your_base_url_here
+```
+
 <br>
 
-6. Build the project
+6. Deploy the database migrations to your datavase
+
+   ```bash
+   pnpm migrate deploy
+   ```
+
+   <br>
+
+7. Build the project
 
    ```bash
     pnpm build
@@ -106,32 +97,50 @@ This project requires following techs to be installed on your system.
 
 <br>
 
-## Tests
+## Routes
 
-To Be Added
+| Method | Path      | Use                               |
+| ------ | --------- | --------------------------------- |
+| Get    | `/status` | Get the status of the application |
+| Get    | `/`       | Redirect to the link.             |
+| Post   | `/`       | Create a link.                    |
 
+<br>
+
+## Usage
+
+To use this URL Shortener, you can follow these steps:
+
+- Send a `POST` request to the `/` route with a `JSON` payload containing the link you want to shorten.
+
+  <br>
+
+  **Payload possible values:**
+
+  ```json
+    "to": "https://example.com" // Required
+    "randomPath": "true" // Optional - Default: false - If true, the path will be generated randomly.
+    "path": "custom-path" // Optional - If randomPath is false, you can provide a custom path.
+  ```
+
+ <br>
+ 
+   **Example Request**
+ ```bash
+ curl -X POST http://localhost:3000/ -H "Content-Type: application/json" -d '{"to": "https://example.com", "randomPath": true}'
+ ```
+
+The `from ` result from the api response can be used as a shortned link to redirect to the link provided in the `to` field.
 <br>
 
 ## Author
 
-**Author Name** &nbsp; : &nbsp; NpSync <br>
-**Author URI** &nbsp; &nbsp; &nbsp; : &nbsp; [npsync.com](https://npsync.com) <br>
-**GitHub URI** &nbsp; &nbsp; &nbsp; : &nbsp; [npsync](https://github.com/npsync)
+**Author Name** &nbsp; : &nbsp; Sachet Subedi <br>
+**Author URI** &nbsp; &nbsp; &nbsp; : &nbsp; [https://sachetsubedi001.com.np](https://sachetsubedi001.com.np) <br>
+**GitHub URI** &nbsp; &nbsp; &nbsp; : &nbsp; [sachetsubedi](https://github.com/sachetsubedi) <br>
+
+**Mail** &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : &nbsp; [mail@sachetsubedi001.com.np](mailto:mail@sachetsubedi001.com.np)
 
 <br>
-
-## Contributors
-
-List of all Contributors:
-
-- [Shree](https://github.com/shreekrishnalamichhane)
-
-<br>
-
-## Changelog
-
-[Release notes](https://github.com/npsync/nodejs-ts-starter/releases)
-
----
 
 Thank you for using this documentation.
