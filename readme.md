@@ -29,6 +29,7 @@ This project requires following techs to be installed on your system.
 
 - Node v20.12.2 or higher
 - pnpm v9.4.0 or higher
+- Mysql database
 
 ## Installation
 
@@ -104,7 +105,7 @@ This project requires following techs to be installed on your system.
 | Method | Path      | Use                               |
 | ------ | --------- | --------------------------------- |
 | Get    | `/status` | Get the status of the application |
-| Get    | `/:path`       | Redirect to the link.             |
+| Get    | `/:path`  | Redirect to the link.             |
 | Post   | `/`       | Create a link.                    |
 
 <br>
