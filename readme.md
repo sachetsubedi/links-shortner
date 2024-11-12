@@ -10,6 +10,7 @@
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
 - [Routes](#routes)
+- [Usage](#usage)
 - [Author](#author)
 
 <br>
@@ -63,6 +64,7 @@ This project requires following techs to be installed on your system.
 
 ```env
  BASE_URL = your_base_url_here
+ LINKS_EXPIRATION_TIME = 15   // In minutes
 ```
 
 <br>
@@ -130,7 +132,7 @@ To use this URL Shortener, you can follow these steps:
  curl -X POST http://localhost:3000/ -H "Content-Type: application/json" -d '{"to": "https://example.com", "randomPath": true}'
  ```
 
-The `from ` result from the api response can be used as a shortned link to redirect to the link provided in the `to` field.
+The `from ` result from the api response can be used as a shortned link to redirect to the link provided in the `to` field. Every link will expire in given time (Default 15 mins).
 <br>
 
 ## Author
@@ -138,9 +140,6 @@ The `from ` result from the api response can be used as a shortned link to redir
 **Author Name** &nbsp; : &nbsp; Sachet Subedi <br>
 **Author URI** &nbsp; &nbsp; &nbsp; : &nbsp; [https://sachetsubedi001.com.np](https://sachetsubedi001.com.np) <br>
 **GitHub URI** &nbsp; &nbsp; &nbsp; : &nbsp; [sachetsubedi](https://github.com/sachetsubedi) <br>
-
-**Mail** &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : &nbsp; [mail@sachetsubedi001.com.np](mailto:mail@sachetsubedi001.com.np)
-
-<br>
+**Mail** &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; : &nbsp; [mail@sachetsubedi001.com.np](mailto:mail@sachetsubedi001.com.np)<br>
 
 Thank you for using this documentation.
