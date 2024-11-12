@@ -18,6 +18,7 @@ const APP_PORT = PORT || 3000;
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+export const Prisma = new PrismaClient();
 // =================================================
 // Custom Middleware
 // =================================================
@@ -31,14 +32,12 @@ morgan.token('id', (req: Request, res: Response) => res.locals.requestId);
 app.use(morgan(':id => :method :status :response-time :url', {}));
 
 // =================================================
-// Routes
-app.use('/links', linksRouter);
-// =================================================
 
+// Routes
 // Status Routes
 app.use('/status', statusRoutes);
-
-export const Prisma = new PrismaClient();
+app.use('/', linksRouter);
+// =================================================
 
 // Catch all 404 route
 app.get('*', (req: Request, res: Response) => {

@@ -1,6 +1,6 @@
 {
-  "name": "nodejs-ts-starter",
-  "description": "Basic starter kit for a typescript based nodejs project",
+  "name": "link-shortner",
+  "description": "A basic link shortner",
   "main": "index.js",
   "keywords": [
     "ts",
@@ -8,7 +8,7 @@
     "starter",
     "typescript"
   ],
-  "author": "shreekrishnalamichhane",
+  "author": "sachetsubedi",
   "license": "MIT",
   "engines": {
     "node": ">=20.12.2",

@@ -5,4 +5,6 @@ const router = Router();
 
 router.post('/', LinksController.create);
 
+router.get('/:path', LinksController.get);
+
 export default router;

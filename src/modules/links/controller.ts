@@ -76,4 +76,23 @@ export const LinksController = {
       return res.status(handledError.code).json(handledError);
     }
   },
+
+  get: async (req: Request, res: Response) => {
+    try {
+      // Get the path from the params
+      const path = req.params.path;
+
+      // Get the link
+      const link = await LinksService.getLink(path);
+
+      if (!link) throw new CustomError('Link not found', 404);
+
+      // Redirect to the link
+      return res.status(301).redirect(link.to);
+    } catch (error) {
+      // If error occurs handle the error
+      const handledError = ErrorHandler.handleError(res, error);
+      return res.status(handledError.code).json(handledError);
+    }
+  },
 };
